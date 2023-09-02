@@ -11,39 +11,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'ADIDAS_VERSION', '1.0.0' );
 
-// define( '_URI', get_template_directory_uri() );
-
-// define( 'HELLO_BRIGADE_DIR', get_template_directory() );
-// define( 'HELLO_BRIGADE_INC_DIR', HELLO_BRIGADE_DIR . '/includes/' );
 
 
-// // General functions
-// require_once HELLO_BRIGADE_INC_DIR . '/general-functions.php';
+define( 'ADIDAS_URI', get_template_directory_uri() );
 
-// // Theme setup and script/style enqueue
-// require_once HELLO_BRIGADE_INC_DIR . '/theme.php';
-
-// // WP actions/filters
-// require_once HELLO_BRIGADE_INC_DIR . '/wp-hooks.php';
-
-// // Functions/Hooks related to ACF
-// require_once HELLO_BRIGADE_INC_DIR . '/acf.php';
-
-// // AJAX functions
-// require_once HELLO_BRIGADE_INC_DIR . '/ajax.php';
-
-// // Gravity Forms Hooks
-// require_once HELLO_BRIGADE_INC_DIR . '/gform.php';
-
-// // Contains all the shortcodes
-// require_once HELLO_BRIGADE_INC_DIR . '/shortcodes.php';
-
-// // Admin functions
-// if ( is_admin() ) {
-// 	require_once HELLO_BRIGADE_INC_DIR . '/admin-functions.php';
-// }
+define( 'ADIDAS_DIR', get_template_directory() );
+define( 'ADIDAS_INC_DIR', ADIDAS_DIR . '/includes/' );
 
 
-// if ( ! isset( $content_width ) ) {
-// 	$content_width = 800; // Pixels.
-// }
+
+
+// Theme setup and script/style enqueue
+require_once ADIDAS_INC_DIR . '/theme.php';
+
+// WP actions/filters
+require_once ADIDAS_INC_DIR . '/wp-hooks.php';
+
+// AJAX functions
+require_once ADIDAS_INC_DIR . '/ajax.php';
+
+// admin functions
+require_once ADIDAS_INC_DIR . '/admin.php';
+
+// Contains all the shortcodes
+require_once ADIDAS_INC_DIR . '/shortcodes.php';
+
+
+
+
