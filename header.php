@@ -34,7 +34,15 @@
     <div class="notification-bar">
       <div class="container">
         <div class="notification-text">
-          <p>LIVE RACE STREAM FROM GATOR NATIONALS IN SARASOTA, FL / WATCH NOW</p>
+          <?php
+          // Get the header text setting
+          $header_text = get_option('header_text');
+
+          // Check if the header text is not empty before displaying it
+          if (!empty($header_text)) {
+              echo '<p class="header-text">' . $header_text . '</p>';
+          }
+          ?>
         </div>
       </div>
     </div>
@@ -54,6 +62,14 @@
         <?php wp_nav_menu( array( 'theme_location' => 'secondary_menu', 'menu_class' => 'header-buttons-menu') ); ?>
      
         </div>
+      </div>
+    </div>
+    <div class="main-menu">
+      <div class="container">
+      
+        <?php wp_nav_menu( array( 'theme_location' => 'primary_menu', 'menu_class' => 'main-menu' , 	'container'            => 'nav',
+		'container_class'      => 'menu-items',) ); ?>
+
       </div>
     </div>
   </header>
