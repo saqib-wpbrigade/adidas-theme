@@ -19,8 +19,6 @@ define( 'ADIDAS_DIR', get_template_directory() );
 define( 'ADIDAS_INC_DIR', ADIDAS_DIR . '/includes/' );
 
 
-
-
 // Theme setup and script/style enqueue
 require_once ADIDAS_INC_DIR . '/theme.php';
 
