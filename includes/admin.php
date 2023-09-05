@@ -65,12 +65,7 @@ function theme_header_settings_init() {
     register_setting('theme_header_settings_group', 'header_text');
 }
 
-function theme_slider_settings_init() {
-    // Register sections and fields for Slider Settings
-    add_settings_section('theme_slider_settings_section', 'Slider Settings', 'theme_slider_settings_section_callback', 'theme-slider-settings');
-    add_settings_field('slider_text', 'Slider Text', 'slider_text_callback', 'theme-slider-settings', 'theme_slider_settings_section');
-    register_setting('theme_slider_settings_group', 'slider_text');
-}
+
 
 function theme_header_settings_section_callback() {
     echo '<p>Customize your header settings here.</p>';
@@ -80,20 +75,81 @@ function theme_slider_settings_section_callback() {
     echo '<p>Customize your slider settings here.</p>';
 }
 
+
+
+function theme_slider_settings_init() {
+    // Register sections and fields for Slider Settings
+    add_settings_section('theme_slider_settings_section', 'Slider Settings', 'theme_slider_settings_section_callback', 'theme-slider-settings');
+    add_settings_field('slider_text', 'Slider Text', 'slider_text_callback', 'theme-slider-settings', 'theme_slider_settings_section');
+    register_setting('theme_slider_settings_group', 'slider_text');
+
+    add_settings_field('slider_title', 'Slider Title', 'slider_title_callback', 'theme-slider-settings', 'theme_slider_settings_section');
+    add_settings_field('slider_description', 'Slider Description', 'slider_description_callback', 'theme-slider-settings', 'theme_slider_settings_section');
+    add_settings_field('slider_video_link', 'Video Link', 'slider_video_link_callback', 'theme-slider-settings', 'theme_slider_settings_section');
+    add_settings_field('slider_image_url', 'Slider Image Upload', 'slider_image_url_callback', 'theme-slider-settings', 'theme_slider_settings_section');
+
+
+    // Register settings for each field
+    register_setting('theme_slider_settings_group', 'slider_title');
+    register_setting('theme_slider_settings_group', 'slider_description');
+    register_setting('theme_slider_settings_group', 'slider_video_link');
+    register_setting('theme_slider_settings_group', 'slider_image_url');
+ 
+
+
+
+}
+
+
+
 function header_text_callback() {
     $header_text = get_option('header_text');
     echo '<textarea name="header_text" rows="4" cols="50">' . esc_html($header_text) . '</textarea>';
+}
+
+function slider_title_callback() {
+    $slider_title = get_option('slider_title');
+    echo '<input type="text" name="slider_title" value="' . esc_attr($slider_title) . '" />';
+}
+
+function slider_description_callback() {
+    $slider_description = get_option('slider_description');
+    echo '<textarea name="slider_description" rows="4" cols="50">' . esc_html($slider_description) . '</textarea>';
+}
+
+function slider_video_link_callback() {
+    $slider_video_link = get_option('slider_video_link');
+    echo '<input type="text" name="slider_video_link" value="' . esc_attr($slider_video_link) . '" />';
+}
+
+function slider_image_url_callback() {
+    $slider_image_url = get_option('slider_image_url');
+    echo '<input type="text" id="upload_img" name="slider_image_url" value="' . esc_attr($slider_image_url) . '" />';
+    var_dump($slider_image_url);
+    echo '<input type="button" id="upload_slider_image_button" class="button-secondary" value="Upload Image" /><br>';
+    echo '<img id="slider_image_preview" src="' . esc_attr($slider_image_url) . '" style="max-width: 200px; height: auto;" />';
 }
 
 
 function slider_text_callback() {
     $slider_text = get_option('slider_text');
     echo '<input type="text" name="slider_text" value="' . esc_attr($slider_text) . '" />';
+
 }
+
+function slider_text_callback2() {
+   
+
+    $slider_text2 = get_option('slider_text2');
+    echo '<input type="text" name="slider_text" value="' . esc_attr($slider_text2) . '" />';
+}
+
+
 
 add_action('admin_menu', 'theme_settings_add_menu');
 add_action('admin_init', 'theme_header_settings_init');
 add_action('admin_init', 'theme_slider_settings_init');
+
 
 
 

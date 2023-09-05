@@ -2,7 +2,7 @@
 /**
  * Theme functions and definitions
  *
- * @package HelloBrigade
+ * @package Adidas_Theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

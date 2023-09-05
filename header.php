@@ -60,16 +60,15 @@
         </div>
         <div class="header-button">
         <?php wp_nav_menu( array( 'theme_location' => 'secondary_menu', 'menu_class' => 'header-buttons-menu') ); ?>
-     
         </div>
       </div>
     </div>
     <div class="main-menu">
       <div class="container">
-      
-        <?php wp_nav_menu( array( 'theme_location' => 'primary_menu', 'menu_class' => 'main-menu' , 	'container'            => 'nav',
-		'container_class'      => 'menu-items',) ); ?>
-
+        <?php wp_nav_menu( array( 'theme_location' => 'primary_menu', 'menu_class' => 'main-menu-list' , 	'container'  => 'nav', 'container_class'   => 'menu-items',) ); ?>
+        <div class="search">
+        <?php get_search_form(); ?>
+        </div>
       </div>
     </div>
   </header>
