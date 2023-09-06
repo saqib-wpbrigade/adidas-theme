@@ -9,6 +9,7 @@
 
 
 
+
 // Custom settings
 function theme_settings_add_menu() {
     add_menu_page('Theme Options', 'Theme Options', 'manage_options', 'theme-options', 'theme_options_page', null, 99);
@@ -27,6 +28,9 @@ function theme_options_page() {
 }
 
 function theme_header_settings_page() {
+// create a repeater field for slider
+
+
     // Header Settings page content
     ?>
     <div class="wrap">
@@ -35,9 +39,13 @@ function theme_header_settings_page() {
             <?php
             settings_fields('theme_header_settings_group');
             do_settings_sections('theme-header-settings');
+            
+
             submit_button('Save Header Settings');
             ?>
         </form>
+
+      
     </div>
     <?php
 }
@@ -54,6 +62,7 @@ function theme_slider_settings_page() {
             submit_button('Save Slider Settings');
             ?>
         </form>
+        
     </div>
     <?php
 }
@@ -80,8 +89,7 @@ function theme_slider_settings_section_callback() {
 function theme_slider_settings_init() {
     // Register sections and fields for Slider Settings
     add_settings_section('theme_slider_settings_section', 'Slider Settings', 'theme_slider_settings_section_callback', 'theme-slider-settings');
-    add_settings_field('slider_text', 'Slider Text', 'slider_text_callback', 'theme-slider-settings', 'theme_slider_settings_section');
-    register_setting('theme_slider_settings_group', 'slider_text');
+  
 
     add_settings_field('slider_title', 'Slider Title', 'slider_title_callback', 'theme-slider-settings', 'theme_slider_settings_section');
     add_settings_field('slider_description', 'Slider Description', 'slider_description_callback', 'theme-slider-settings', 'theme_slider_settings_section');
@@ -125,24 +133,15 @@ function slider_video_link_callback() {
 function slider_image_url_callback() {
     $slider_image_url = get_option('slider_image_url');
     echo '<input type="text" id="upload_img" name="slider_image_url" value="' . esc_attr($slider_image_url) . '" />';
-    var_dump($slider_image_url);
+    
     echo '<input type="button" id="upload_slider_image_button" class="button-secondary" value="Upload Image" /><br>';
     echo '<img id="slider_image_preview" src="' . esc_attr($slider_image_url) . '" style="max-width: 200px; height: auto;" />';
 }
 
 
-function slider_text_callback() {
-    $slider_text = get_option('slider_text');
-    echo '<input type="text" name="slider_text" value="' . esc_attr($slider_text) . '" />';
 
-}
 
-function slider_text_callback2() {
-   
 
-    $slider_text2 = get_option('slider_text2');
-    echo '<input type="text" name="slider_text" value="' . esc_attr($slider_text2) . '" />';
-}
 
 
 
