@@ -12,8 +12,10 @@ function adidas_scripts() {
 	wp_enqueue_style( 'adidas-style', get_template_directory_uri() . '/assets/css/main.css', array(), ADIDAS_VERSION );
 	wp_enqueue_style( 'adidas-stylesheet', get_template_directory_uri() . '/style.css', array(), ADIDAS_VERSION );
 
+
+	wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/assets/js/slick.min.js', array('jquery'), ADIDAS_VERSION, true );
+	wp_enqueue_script( 'fancy-box-js', get_template_directory_uri() . '/assets/js/fancy-box.umd.js', array('jquery'), ADIDAS_VERSION, true );
 	wp_enqueue_script( 'adidas-js', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), ADIDAS_VERSION, true );
-	
 }
 add_action( 'wp_enqueue_scripts', 'adidas_scripts' );
 

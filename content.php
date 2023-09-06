@@ -8,4 +8,4 @@
 
 
 //  get component data from components folder
-require_once ADIDAS_DIR . '/components/hero-slider.php';
+include ADIDAS_DIR . '/components/hero-slider.php';
